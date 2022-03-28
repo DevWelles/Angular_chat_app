@@ -1,0 +1,12 @@
+<form class="form-message" (ngSubmit)="onSubmit()">
+  <input
+    class="input-msg"
+    value="{currentMessageValue}"
+    type="text"
+    placeholder="Enter your message and press ENTER"
+    autoFocus="{true}"
+    [(ngModel)]="messageValue"
+    name="form"
+  />
+  <button class="btn-message" type="submit">Send</button>
+</form>

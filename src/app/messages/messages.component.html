@@ -1,0 +1,43 @@
+<ul class="Messages-list">
+  <li *ngFor="let message of messages">
+    <div
+      *ngIf="message.member.id === member.member.id"
+      class="Messages-message currentMember"
+    >
+      <span
+        class="avatar"
+        [ngStyle]="{
+          backgroundColor: member.member.clientData.avatar
+        }"
+      ></span>
+
+      <div class="Message-content">
+        <span class="username">{{ message.member.clientData.username }}</span>
+        <div class="text">
+          <div class="time">{{ message.timestamp }}</div>
+          {{ message.text }}
+        </div>
+      </div>
+    </div>
+
+    <div
+      *ngIf="message.member.id !== member.member.id"
+      class="Messages-message"
+    >
+      <span
+        class="avatar"
+        [ngStyle]="{
+          backgroundColor: member.member.clientData.avatar
+        }"
+      ></span>
+
+      <div class="Message-content">
+        <span class="username">{{ message.member.clientData.username }}</span>
+        <div class="text">
+          <div class="time">{{ message.timestamp }}</div>
+          {{ message.text }}
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>

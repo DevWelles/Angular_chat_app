@@ -1,0 +1,20 @@
+<div class="onlineUsers">
+  <h3>Rooms:</h3>
+  <ul class="roomsList">
+    <button
+      *ngFor="let room of allRooms"
+      class="button-rooms"
+      [value]="room"
+      (click)="(handleChange)"
+    >
+      {{ room }}
+    </button>
+  </ul>
+  <!-- <NewRoom
+    inputNewRoomValue={inputNewRoomValue}
+    addNewRoom={addNewRoom}
+    updateNewRoomValue={updateNewRoomValue}
+    toggleModal={toggleModal}
+    class={class}
+  /> -->
+</div>

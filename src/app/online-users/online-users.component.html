@@ -1,0 +1,17 @@
+<div class="onlineUsers">
+  <h3>Online Users:</h3>
+  <ul class="p-0" *ngFor="let user of onlineUsers">
+    <li class="d-flex align-items-center py-2">
+      <span
+        class="avatar"
+        [ngStyle]="{
+          backgroundColor: user.clientData.member.clientData.avatar
+        }"
+      ></span>
+
+      <div class="username">
+        {{ user.clientData.member.clientData.username }}
+      </div>
+    </li>
+  </ul>
+</div>
