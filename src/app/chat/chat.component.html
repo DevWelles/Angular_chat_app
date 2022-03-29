@@ -12,7 +12,7 @@
           Welcome <strong>{{ member.member.clientData.username }}</strong>
         </h3>
         <h5>You are currently in room:</h5>
-        <h5>{{ currentRoom.room }}</h5>
+        <h5>{{ room.name }}</h5>
       </div>
 
       <app-messages [messages]="messages" class="w-100"></app-messages>

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RoomsService } from '../rooms.service';
-import { CurrentRoomService } from '../current-room.service';
-import { ComponentFactoryResolver } from '@angular/core';
+//import { CurrentRoomService } from '../current-room.service';
+
 
 @Component({
   selector: 'app-rooms',
@@ -13,11 +13,11 @@ export class RoomsComponent implements OnInit {
 
   constructor(
     public rooms:RoomsService,
-    public currentRoom: CurrentRoomService
+    //public currentRoom: CurrentRoomService
     ) { }
 
    handleChange =  () => {
-    console.log(this.currentRoom.room);
+    //console.log(this.currentRoom.room);
     console.log("radis li")
     // await changeRoom(event.target.value);
     // handleRoomChange(currentRoom);

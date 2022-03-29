@@ -13,6 +13,7 @@ export class InputComponent implements OnInit {
 
   onSubmit() {
     this.onSendMessage(this.messageValue)
+    //console.log(this.messageValue)
     this.messageValue="" 
   }
 

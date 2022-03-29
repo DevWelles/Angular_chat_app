@@ -3,7 +3,7 @@ import { Member, NewMessage } from '../interfaces';
 import { MemberService } from '../member.service';
 import { OnlineUsersService } from '../online-users.service';
 import { RoomsService } from '../rooms.service';
-import { CurrentRoomService } from '../current-room.service';
+//import { CurrentRoomService } from '../current-room.service';
 
 @Component({
   selector: 'app-chat',
@@ -17,20 +17,21 @@ export class ChatComponent implements OnInit {
   });
 
   room: any;
+  currentRoom = this.rooms.getFirstRoom()
   messages:NewMessage[] =[];
   
   constructor(
     public member:MemberService,
     public onlineUsers:OnlineUsersService,
     public rooms:RoomsService,
-    public currentRoom: CurrentRoomService
+   // public currentRoom: CurrentRoomService
     ) { }
 
    ngOnInit ()  {
-    console.log(this.messages)
-    console.log(this.member)
+    //console.log(this.messages)
+    //console.log(this.member)
      this.drone.on("open", (error?:any) => {
-      console.log(this.drone)
+      //console.log(this.drone)
       if (error) {
         return console.error(error);
       }
@@ -42,17 +43,20 @@ export class ChatComponent implements OnInit {
   }
 
   subsrcibeRoom() {
-    this.room = this.drone.subscribe(this.currentRoom.room);
+    //console.log(this.currentRoom)
+    //console.log(this.currentRoom.rooms.rooms[0])
+    console.log(this.rooms.getFirstRoom())
+    this.room = this.drone.subscribe(this.currentRoom);
+    console.log(this.room)
 
     this.room.on("open", (error:any) => {
       if (error) {
         return console.error(error);
       }
-      console.log(this.currentRoom)
     });
 
     this.room.on("members", (m:any) => { 
-      console.log(m)
+      //console.log(m)
       const members = m;
       this.onlineUsers= members;
     });
@@ -85,11 +89,11 @@ export class ChatComponent implements OnInit {
   }
 
   onSendMessage = (message:string):void => {
-    console.log(this.currentRoom);
-    console.log(message);
+    console.log(this.room)
+    console.log(message)
     console.log(this.drone)
     this.drone.publish({
-      room: this.currentRoom,
+      room: this.currentRoom, //ovo obavezno mora biti samo string observable-room jer ja sam bija stavija cili objekt room
       message: message,
     });
   }
