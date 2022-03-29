@@ -26,6 +26,10 @@ export class LoginComponent implements OnInit {
     this.member.addUserName(this.inputLoginValue)
   }
 
+  // selectAvatar = (event:any) => {
+  //   this.member.setAvatar(event.target.value)
+  // }
+
   ngOnInit(): void {
   }
 

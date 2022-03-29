@@ -1,7 +1,7 @@
 <div class="container background-login fluid mw-100">
   <div class="row vh-100 justify-content-center row">
     <div class="col align-self-center md-6">
-      <div class="card px-5 py-5 bg-transparent">
+      <div class="card px-5 py-5 bg-transparent loginCard">
         <form class="row justify-content-center" (ngSubmit)="onSubmit()">
           <h2 class="mb-4 text-center">Enter your user name</h2>
 
@@ -26,6 +26,7 @@
             Login
           </button>
           <h4>Choose avatar (optional) :</h4>
+          <app-avatars></app-avatars>
         </form>
       </div>
     </div>

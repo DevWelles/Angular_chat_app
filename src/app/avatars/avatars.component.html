@@ -1,0 +1,11 @@
+<ul class="reg-form__avatar-list">
+  <li class="reg-form__avatar" *ngFor="let avatar of avatars">
+    <button
+      class="login-avatars"
+      (click)="selectAvatar($event)"
+      [value]="avatar"
+    >
+      {{ avatar }}
+    </button>
+  </li>
+</ul>

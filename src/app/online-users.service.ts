@@ -9,11 +9,11 @@ export class OnlineUsersService {
 
   constructor() { }
 
-  addMember(member:Member) : void {
+  addMember = (member:Member)  =>{
     this.onlineUsers = [...this.onlineUsers, member]
   }
 
-  removeMember (id:string) : void {
+  removeMember = (id:string) => {
     let newOnlineUsers = this.onlineUsers;
     const index = newOnlineUsers.findIndex((member) => member.id === id);
     newOnlineUsers.splice(index, 1);

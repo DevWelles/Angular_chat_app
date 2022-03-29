@@ -5,11 +5,18 @@
       class="Messages-message currentMember"
     >
       <span
+        *ngIf="message.member.clientData.avatar.startsWith('#')"
         class="avatar"
         [ngStyle]="{
-          backgroundColor: member.member.clientData.avatar
+          backgroundColor: message.member.clientData.avatar
         }"
       ></span>
+      <div
+        *ngIf="!message.member.clientData.avatar.startsWith('#')"
+        class="avatar"
+      >
+        {{ message.member.clientData.avatar }}
+      </div>
 
       <div class="Message-content">
         <span class="username">{{ message.member.clientData.username }}</span>
@@ -25,11 +32,18 @@
       class="Messages-message"
     >
       <span
+        *ngIf="message.member.clientData.avatar.startsWith('#')"
         class="avatar"
         [ngStyle]="{
-          backgroundColor: member.member.clientData.avatar
+          backgroundColor: message.member.clientData.avatar
         }"
       ></span>
+      <div
+        *ngIf="!message.member.clientData.avatar.startsWith('#')"
+        class="avatar"
+      >
+        {{ message.member.clientData.avatar }}
+      </div>
 
       <div class="Message-content">
         <span class="username">{{ message.member.clientData.username }}</span>

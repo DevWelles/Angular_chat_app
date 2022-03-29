@@ -97,6 +97,11 @@ export class ChatComponent implements OnInit {
       message: message,
     });
   }
+
+  logOut = ():void=> {
+    this.drone.close();
+    this.member.resetMember();
+  }
   }
 
  

@@ -11,6 +11,8 @@ import { OnlineUsersComponent } from './online-users/online-users.component';
 import { MessagesComponent } from './messages/messages.component';
 import { InputComponent } from './input/input.component';
 import { RoomsComponent } from './rooms/rooms.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AvatarsComponent } from './avatars/avatars.component';
 
 const routes:Routes = [
   { path: 'chat', component: ChatComponent},
@@ -26,7 +28,9 @@ const routes:Routes = [
     OnlineUsersComponent,
     MessagesComponent,
     InputComponent,
-    RoomsComponent
+    RoomsComponent,
+    LogoutComponent,
+    AvatarsComponent
   ],
   imports: [
     BrowserModule,

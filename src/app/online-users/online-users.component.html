@@ -1,14 +1,26 @@
 <div class="onlineUsers">
   <h3>Online Users:</h3>
   <ul class="p-0" *ngFor="let user of onlineUsers">
-    <li class="d-flex align-items-center py-2">
+    <li
+      class="d-flex align-items-center py-2"
+      *ngIf="user.clientData.member.clientData.avatar.startsWith('#')"
+    >
       <span
         class="avatar"
         [ngStyle]="{
           backgroundColor: user.clientData.member.clientData.avatar
         }"
       ></span>
+      <div class="username">
+        {{ user.clientData.member.clientData.username }}
+      </div>
+    </li>
 
+    <li
+      class="d-flex align-items-center py-2"
+      *ngIf="!user.clientData.member.clientData.avatar.startsWith('#')"
+    >
+      <div class="avatar">{{ user.clientData.member.clientData.avatar }}</div>
       <div class="username">
         {{ user.clientData.member.clientData.username }}
       </div>
