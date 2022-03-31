@@ -1,6 +1,6 @@
 <div class="onlineUsers">
   <h3>Online Users:</h3>
-  <ul class="p-0" *ngFor="let user of onlineUsers">
+  <ul class="p-0" *ngFor="let user of onlineUsers.onlineUsers">
     <li
       class="d-flex align-items-center py-2"
       *ngIf="user.clientData.member.clientData.avatar.startsWith('#')"

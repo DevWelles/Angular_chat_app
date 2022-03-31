@@ -5,7 +5,7 @@
       *ngFor="let room of allRooms"
       class="button-rooms"
       [value]="room"
-      (click)="(handleChange)"
+      (click)="handleChange($event)"
     >
       {{ room }}
     </button>

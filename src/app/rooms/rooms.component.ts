@@ -10,15 +10,20 @@ import { RoomsService } from '../rooms.service';
 })
 export class RoomsComponent implements OnInit {
   allRooms = this.rooms.getAllRooms()
+  
+
+  @Input() room?:any;
+  @Input() subsrcibeRoom!: (event:any) => void
 
   constructor(
     public rooms:RoomsService,
     //public currentRoom: CurrentRoomService
     ) { }
 
-   handleChange =  () => {
+   handleChange =  (event:any) => {
     //console.log(this.currentRoom.room);
     console.log("radis li")
+    this.subsrcibeRoom(event.target.value)
     // await changeRoom(event.target.value);
     // handleRoomChange(currentRoom);
   };

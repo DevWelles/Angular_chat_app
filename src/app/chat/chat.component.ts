@@ -38,15 +38,15 @@ export class ChatComponent implements OnInit {
       this.member.setIdFromScaledrone(this.drone.clientId)
       
     });
-     this.subsrcibeRoom()
+     this.subsrcibeRoom(this.currentRoom)
     
   }
 
-  subsrcibeRoom() {
+  subsrcibeRoom(roomName:string) {
     //console.log(this.currentRoom)
     //console.log(this.currentRoom.rooms.rooms[0])
     console.log(this.rooms.getFirstRoom())
-    this.room = this.drone.subscribe(this.currentRoom);
+    this.room = this.drone.subscribe(roomName);
     console.log(this.room)
 
     this.room.on("open", (error:any) => {
@@ -58,15 +58,15 @@ export class ChatComponent implements OnInit {
     this.room.on("members", (m:any) => { 
       //console.log(m)
       const members = m;
-      this.onlineUsers= members;
+      this.onlineUsers.setOnlineUSers(m);
     });
 
     this.room.on("member_join", (member:Member) => { 
-      this.onlineUsers.addMember(member); //ne odradi mi ovo?
+      this.onlineUsers.addMember(member); 
     });
 
     this.room.on("member_leave", ( id:string ): void => {
-      this.onlineUsers.removeMember(id) //a ni ovo? error its not a function
+      this.onlineUsers.removeMember(id) 
     });
 
     this.room.on("message", (message:any) => {
@@ -93,7 +93,7 @@ export class ChatComponent implements OnInit {
     console.log(message)
     console.log(this.drone)
     this.drone.publish({
-      room: this.currentRoom, //ovo obavezno mora biti samo string observable-room jer ja sam bija stavija cili objekt room
+      room: this.currentRoom,
       message: message,
     });
   }

@@ -9,6 +9,10 @@ export class OnlineUsersService {
 
   constructor() { }
 
+  setOnlineUSers (arr:Array<Member>) {
+    this.onlineUsers = arr
+  }
+
   addMember = (member:Member)  =>{
     this.onlineUsers = [...this.onlineUsers, member]
   }
