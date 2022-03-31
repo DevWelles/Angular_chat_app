@@ -1,36 +1,6 @@
 <ul class="Messages-list">
   <li *ngFor="let message of messages">
-    <div
-      *ngIf="message.member.id === member.member.id"
-      class="Messages-message currentMember"
-    >
-      <span
-        *ngIf="message.member.clientData.avatar.startsWith('#')"
-        class="avatar"
-        [ngStyle]="{
-          backgroundColor: message.member.clientData.avatar
-        }"
-      ></span>
-      <div
-        *ngIf="!message.member.clientData.avatar.startsWith('#')"
-        class="avatar"
-      >
-        {{ message.member.clientData.avatar }}
-      </div>
-
-      <div class="Message-content">
-        <span class="username">{{ message.member.clientData.username }}</span>
-        <div class="text">
-          <div class="time">{{ message.timestamp }}</div>
-          {{ message.text }}
-        </div>
-      </div>
-    </div>
-
-    <div
-      *ngIf="message.member.id !== member.member.id"
-      class="Messages-message"
-    >
+    <div [ngClass]="setClasses(message, member)">
       <span
         *ngIf="message.member.clientData.avatar.startsWith('#')"
         class="avatar"

@@ -8,20 +8,17 @@ import { MemberService } from '../member.service';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
-  className ="fsfsd"
+  className!: string;
 
   @Input() messages!:NewMessage[];
   constructor(public member:MemberService) { }
 
-  toggleClass() {
-    this.messages.map(message => {
-      const myMessage = this.member.member.id === message.member.id //true ili false
-      if (myMessage){
-        this.className = "Messages-message currentMember"
-      } else{
-        this.className = "Messages-message"
-      }
-    })
+  setClasses(message:any, member:any) {
+    let classes = {
+      "currentMember": message.member.id === member.member.id,
+      "Messages-message" : true
+    }
+    return classes
   }
 
   ngOnInit(): void {
